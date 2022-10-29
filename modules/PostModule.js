@@ -1,24 +1,27 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const schema = new mongoose.Schema({
-    title: {
-        type: String,
-        require: true,
+const schema = new mongoose.Schema(
+    {
+        title: {
+            type: String,
+            require: true,
+        },
+        context: {
+            type: String,
+            require: true,
+        },
+        author: {
+            type: String,
+            require: true,
+            default: "lvnguyen",
+        },
+        attachment: String,
+        likeCount: {
+            type: Number,
+            default: 0,
+        },
     },
-    context: {
-        type: String,
-        require: true,
-    },
-    author: {
-        type: String,
-        require: true,
-        default: 'lvnguyen',
-    },
-    attachment: String,
-    likeCount: {
-        type: Number,
-        default: 0,
-    }
-},{ timestamps: true })
+    { timestamps: true }
+);
 
-export const PostModule = mongoose.model('Post', schema);
+export const PostModule = mongoose.model("Post", schema);
